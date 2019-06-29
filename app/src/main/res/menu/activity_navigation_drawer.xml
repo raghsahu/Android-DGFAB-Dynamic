@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_camera"
+            android:icon="@drawable/homee"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_wallet"
+            android:icon="@drawable/wall"
+            android:title="Wallet" />
+        <item
+            android:id="@+id/nav_create_staff"
+            android:icon="@drawable/wall"
+            android:title="Create Staff" />
+        <item
+            android:id="@+id/nav_addprod"
+            android:icon="@drawable/add_icon"
+            android:title="Add Product" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/proofl"
+            android:title="My DGFAB" />
+        <item
+            android:id="@+id/nav_order"
+            android:title="Order" />
+
+        <item
+            android:id="@+id/nav_accountant"
+
+            android:title="Accountant" />
+        <item
+            android:id="@+id/nav_follow"
+
+            android:title="Followers" />
+        <item
+            android:id="@+id/nav_slideshow"
+
+            android:title="My Tender" />
+        <item
+            android:id="@+id/nav_manage"
+            android:icon="@drawable/chating"
+            android:title="Chat" />
+        <item
+            android:id="@+id/nav_Attandence"
+
+            android:title="Attandance" />
+        <item
+            android:id="@+id/nav_cashier"
+
+            android:title="Cashier" />
+
+        <item
+            android:id="@+id/nav_cdnoted"
+
+            android:title="Credit note" />
+        <item
+            android:id="@+id/nav_gownkeeper"
+
+            android:title="Godown Keeper" />
+        <item
+            android:id="@+id/nav_debitdoted"
+
+            android:title="DebitNote" />
+    <item
+            android:id="@+id/nav_purodd"
+
+            android:title="Purchase Order" />
+        <item
+            android:id="@+id/nav_actmlm"
+
+            android:title="MLM" />
+        <item
+            android:id="@+id/nav_department"
+
+            android:title="Department" />
+
+        <item
+            android:id="@+id/nav_occassion"
+
+            android:title="Auction" />
+
+        <item
+            android:id="@+id/nav_stock_Clear"
+
+            android:title="Product Stock" />
+
+        <item
+            android:id="@+id/nav_grn"
+
+            android:title="GRN" />
+
+        <item
+            android:id="@+id/nav_master"
+
+            android:title="Account Master" />
+        <item
+            android:id="@+id/nav_voucher"
+
+            android:title="Voucher" />
+        <item
+            android:id="@+id/nav_report"
+
+            android:title="Report" />
+        <item
+            android:id="@+id/nav_utility"
+
+            android:title="Utility" />
+        <item
+            android:id="@+id/nav_sales_order"
+
+            android:title="Sales Order" />
+
+        <item
+
+            android:id="@+id/nav_gst_audit"
+
+            android:title="Gst Audit" />
+        <item
+            android:id="@+id/nav_invoice"
+
+            android:title="Invoice Raise" />
+
+        <item
+            android:id="@+id/nav_bank_reco"
+            android:icon="@drawable/bank"
+            android:title="Bank Reco" />
+        <item
+            android:visible="false"
+            android:id="@+id/nav_dispatc_entry"
+            android:icon="@drawable/dispatch"
+            android:title="Dispatch Entry" />
+        <item
+            android:visible="false"
+            android:id="@+id/nav_ser_pro_entry"
+            android:icon="@drawable/service"
+            android:title="Service/Production Entry" />
+
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+
+                android:title="Billing History" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/logout"
+                android:title="Logout" />
+        </menu>
+    </item>
+
+</menu>

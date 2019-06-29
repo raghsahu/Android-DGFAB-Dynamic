@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="86dp"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <EditText
+            android:id="@+id/brandname"
+            android:layout_width="200dp"
+            android:layout_height="56dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="92dp"
+            android:layout_weight="0"
+            android:background="@drawable/bubble"
+            android:gravity="center_vertical"
+            android:hint="Brand Name"
+            android:inputType="text"
+            android:paddingStart="32dp"
+            android:paddingEnd="32dp"
+            android:textColor="#fff"
+            android:textColorHint="#fff" />
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:orientation="vertical"
+            android:weightSum="2">
+
+            <ImageView
+                android:id="@+id/addmore"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/ic_add_black_24dp" />
+
+            <ImageView
+                android:id="@+id/removeless"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/ic_remove_black_24dp" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</LinearLayout>

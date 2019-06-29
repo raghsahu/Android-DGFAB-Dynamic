@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:fitsSystemWindows="true"
+    android:theme="@android:style/Theme.NoTitleBar"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/bg1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.LogandReg.Registration_Step_3">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:background="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+
+                android:textSize="20dp"
+                android:textColor="#fff"
+                android:text="Please add your brands:"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/morebrands"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+
+
+            </android.support.v7.widget.RecyclerView>
+
+            <android.support.v7.widget.CardView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:padding="15dp"
+                    android:textColor="#ffff"
+                    android:textSize="13dp"
+                    android:text="Please select all the documents for successful registration"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+
+                </TextView>
+
+
+            </android.support.v7.widget.CardView>
+            <!--<LinearLayout-->
+                <!---->
+                <!--android:weightSum="5"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:orientation="vertical">-->
+                <!--<LinearLayout-->
+                    <!--android:orientation="horizontal"-->
+                    <!--android:layout_weight="2"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content">-->
+
+                <!--<LinearLayout-->
+                    <!--android:weightSum="1"-->
+                    <!--android:orientation="vertical"-->
+                    <!--android:layout_width="120dp"-->
+                    <!--android:layout_height="wrap_content">-->
+
+
+                <!--<TextView-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:textColor="#fff"-->
+                    <!--android:text="Trademark Certificate"-->
+                    <!--android:textSize="20dp"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content" >-->
+
+
+
+                <!--</TextView>-->
+                <!--<ImageView-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:src="@drawable/noimageicon"-->
+                    <!--android:id="@+id/trandmark_cer"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="120dp" >-->
+
+                <!--</ImageView>-->
+                <!--</LinearLayout>-->
+
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="188dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:orientation="vertical"-->
+                        <!--android:weightSum="2">-->
+
+                        <!--<TextView-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_weight="1"-->
+                            <!--android:text="Copyright Certificate"-->
+                            <!--android:textColor="#fff"-->
+                            <!--android:textSize="20dp">-->
+
+
+                        <!--</TextView>-->
+
+                        <!--<ImageView-->
+                            <!--android:id="@+id/copyright_cer"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="120dp"-->
+                            <!--android:layout_weight="1"-->
+                            <!--android:src="@drawable/noimageicon">-->
+
+                        <!--</ImageView>-->
+                    <!--</LinearLayout>-->
+
+                <!--</LinearLayout>-->
+                <!--<TextView-->
+                    <!--android:textColor="#fff"-->
+                    <!--android:text="Other Certificate"-->
+                    <!--android:textSize="20dp"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content" >-->
+
+                <!--</TextView>-->
+                <!--<ImageView-->
+                    <!--android:src="@drawable/noimageicon"-->
+                    <!--android:id="@+id/others_cer"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="120dp" >-->
+
+                <!--</ImageView>-->
+                <!--<TextView-->
+                    <!--android:textColor="#fff"-->
+                    <!--android:text="GST Certificate"-->
+                    <!--android:textSize="20dp"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content" >-->
+
+                <!--</TextView>-->
+                <!--<ImageView-->
+                    <!--android:src="@drawable/noimageicon"-->
+                    <!--android:id="@+id/gst_cer"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="120dp" >-->
+
+                <!--</ImageView>-->
+                <!--<TextView-->
+                    <!--android:textColor="#fff"-->
+                    <!--android:text="GST Certificate"-->
+                    <!--android:textSize="20dp"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content" >-->
+
+                <!--</TextView>-->
+                <!--<ImageView-->
+                    <!--android:src="@drawable/noimageicon"-->
+                    <!--android:id="@+id/degree_cer"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="120dp" >-->
+
+                <!--</ImageView>-->
+
+
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+                <!--android:visibility="gone"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:weightSum="2"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
+                <!--<EditText-->
+                    <!--android:layout_weight="0.3"-->
+                    <!--android:id="@+id/name"-->
+                    <!--android:layout_width="300dp"-->
+                    <!--android:layout_height="56dp"-->
+                    <!--android:layout_gravity="center_horizontal"-->
+                    <!--android:layout_marginTop="92dp"-->
+                    <!--android:background="@drawable/bubble"-->
+                    <!--android:gravity="center_vertical"-->
+                    <!--android:hint="Brand Name"-->
+                    <!--android:inputType="text"-->
+                    <!--android:paddingStart="32dp"-->
+                    <!--android:paddingEnd="32dp"-->
+                    <!--android:textColor="#fff"-->
+                    <!--android:textColorHint="#fff" />-->
+            <!--<LinearLayout-->
+                <!--android:orientation="horizontal"-->
+                <!--android:weightSum="2"-->
+                <!--android:layout_weight="1.5"-->
+                <!--android:layout_width="50dp"-->
+                <!--android:layout_height="60dp">-->
+
+                <!--<ImageView-->
+                    <!--android:id="@+id/add"-->
+                    <!--android:layout_weight="1"-->
+                    <!--app:srcCompat="@drawable/ic_add_black_24dp"-->
+                    <!--android:layout_width="100dp"-->
+                    <!--android:layout_height="50dp" />-->
+
+                <!--<ImageView-->
+                    <!--android:layout_weight="1"-->
+                    <!--app:srcCompat="@drawable/ic_remove_black_24dp"-->
+                    <!--android:layout_width="100dp"-->
+                    <!--android:layout_height="50dp" />-->
+
+            <!--</LinearLayout>-->
+
+            <!--</LinearLayout>-->
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:weightSum="2"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <LinearLayout
+                android:padding="10dp"
+                android:layout_weight="1"
+                android:weightSum="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:padding="5dp"
+                    android:layout_marginRight="10dp"
+                    android:textSize="15dp"
+                    android:textColor="#fff"
+                    android:text="Trademark Certificate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
+                <ImageView
+                    android:padding="5dp"
+                    android:id="@+id/trandmark_cer"
+                    android:src="@drawable/noimageicon"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp" />
+            </LinearLayout>
+
+                <LinearLayout
+                    android:padding="10dp"
+                    android:layout_weight="1"
+                    android:weightSum="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:padding="5dp"
+                        android:textSize="15dp"
+                        android:textColor="#fff"
+                        android:text="Copyright Certificate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <ImageView
+                        android:padding="5dp"
+                        android:id="@+id/copyright_cer"
+                        android:src="@drawable/noimageicon"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+
+
+        </LinearLayout>
+            <LinearLayout
+                android:padding="10dp"
+                android:weightSum="2"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:padding="1dp"
+                    android:layout_weight="1"
+                    android:weightSum="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:padding="5dp"
+                        android:textSize="15dp"
+                        android:textColor="#fff"
+                        android:text="Others Certificate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+
+                    <ImageView
+                        android:padding="5dp"
+                        android:id="@+id/others_cer"
+                        android:src="@drawable/noimageicon"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:padding="3dp"
+                    android:layout_weight="1"
+                    android:weightSum="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:padding="5dp"
+                        android:textSize="15dp"
+                        android:textColor="#fff"
+                        android:text="GST Certificate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <ImageView
+                        android:padding="5dp"
+                        android:id="@+id/gst_cer"
+                        android:src="@drawable/noimageicon"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:padding="10dp"
+                android:weightSum="2"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:padding="10dp"
+                    android:layout_weight="1"
+                    android:weightSum="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:padding="5dp"
+                        android:textSize="15dp"
+                        android:textColor="#fff"
+                        android:text="Degree Certificate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+
+                    <ImageView
+                        android:padding="5dp"
+                        android:id="@+id/degree_cer"
+                        android:layout_width="120dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/noimageicon" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:padding="10dp"
+                    android:visibility="gone"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:padding="50dp"
+                        android:textSize="20dp"
+                        android:textColor="#fff"
+                        android:text="Trademark Certificate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <ImageView
+                        android:padding="5dp"
+                        android:src="@drawable/noimageicon"
+                        android:layout_width="100dp"
+                        android:layout_height="10dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:padding="10dp"
+            android:layout_margin="5dp"
+            android:layout_marginTop="10dp"
+            android:textColor="#fff"
+            android:background="@color/colorPrimary"
+            android:id="@+id/uplodoc"
+            android:text="Upload"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

@@ -2,14 +2,36 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.myhexaville.login">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="DGFAB"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Buyer_Main_Navigation"></activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".Activities_Dashboards.ProfileActivty" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Activities_Dashboards.DashBoard"
+            android:label="@string/title_activity_dash_board"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Activities.LogandReg.Registration_Step_3" />
+
+        <activity android:name=".Activities.LogandReg.Registration_Step_2" />
+        <activity android:name=".Activities.LogandReg.Registration_Step_1" />
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <activity
+            android:name=".Splash_DGFAB"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">

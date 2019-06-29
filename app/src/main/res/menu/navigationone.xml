@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/chating"
+        android:title="Chat" />
+
+    <item
+        android:id="@+id/navigation_feeds"
+        android:icon="@drawable/feeds"
+        android:title="Feeds" />
+
+
+    <item
+        android:id="@+id/navigation_dashboard"
+        android:icon="@drawable/directory"
+        android:title="Directories" />
+
+    <item
+        android:id="@+id/navigation_dealerlist"
+        android:icon="@drawable/ic_filter_list_black_24dp"
+        android:title="Dealer's list" />
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/prm"
+        android:title="MY DGFAB" />
+
+</menu>

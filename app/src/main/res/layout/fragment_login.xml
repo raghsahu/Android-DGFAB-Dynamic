@@ -6,6 +6,7 @@
     tools:context="com.myhexaville.login.login.SignUpFragment">
 
     <EditText
+        android:id="@+id/email"
         android:layout_width="300dp"
         android:layout_height="56dp"
         android:layout_gravity="center_horizontal"
@@ -19,6 +20,7 @@
         android:textColor="#ffffff" />
 
     <EditText
+        android:id="@+id/password"
         android:layout_width="300dp"
         android:layout_height="56dp"
         android:paddingEnd="32dp"
@@ -30,7 +32,18 @@
         android:paddingStart="32dp"
         android:hint="@string/password"
         android:textColor="#ffffff" />
+    <Button
+        android:background="@null"
+        android:layout_marginTop="30dp"
+        android:padding="10dp"
+        android:textColor="#ffffff"
+        android:text="LOGIN"
+        android:id="@+id/login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
 
+
+    </Button>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="48dp"
