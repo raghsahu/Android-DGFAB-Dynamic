@@ -7,10 +7,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -41,8 +43,12 @@ import org.apache.http.entity.mime.MultipartEntity;
 import org.apache.http.entity.mime.content.FileBody;
 import org.apache.http.entity.mime.content.StringBody;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -76,10 +82,12 @@ public class Registration_Step_3 extends AppCompatActivity {
     public final int REQUEST_ID_MULTIPLE_CAMERA = 100;
     public final int REQUEST_ID_MULTIPLE_READ_PER = 100;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration__step_3);
+
         morebrands = findViewById(R.id.morebrands);
         trandmark_cer = findViewById(R.id.trandmark_cer);
         copyright_cer = findViewById(R.id.copyright_cer);
@@ -281,7 +289,7 @@ public class Registration_Step_3 extends AppCompatActivity {
         // READ_REQUEST_CODE. If the request code seen here doesn't match, it's the
         // response to some other intent, and the code below shouldn't run at all.
 
-        if (requestCode == RESULT_PICK_IMAGE && resultCode == Activity.RESULT_OK) {
+        if (requestCode == RESULT_PICK_IMAGE && resultCode == Activity.RESULT_OK && null != resultData) {
             // The document selected by the user won't be returned in the intent.
             // Instead, a URI to that document will be contained in the return intent
             // provided to this method as a parameter.
@@ -292,6 +300,8 @@ public class Registration_Step_3 extends AppCompatActivity {
                 Log.i("We go somethihbygf", "Uri: " + resultData.getData());
                 Toast.makeText(this, "is " + resultData.getData(), Toast.LENGTH_SHORT).show();
                 //   showImage(uri,resultData);
+                onCaptureImageResult(resultData);
+
             }
 
         }
@@ -304,6 +314,7 @@ public class Registration_Step_3 extends AppCompatActivity {
             int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
             String picturePath = cursor.getString(columnIndex);
             Log.i("We go somethihbygf", "Uri: " + resultData.getData());
+
             if (trandmark_cerAnInt == 1) {
                 trandmark_cerFile = new File(picturePath);
                 if (trandmark_cerFile.exists()) {
@@ -361,6 +372,76 @@ public class Registration_Step_3 extends AppCompatActivity {
             // ImageView imageView = (ImageView) findViewById(R.id.imgView);
             //imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
         }
+
+    }
+
+    private void onCaptureImageResult(Intent data) {
+        Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        thumbnail.compress(Bitmap.CompressFormat.JPEG, 90, bytes);
+
+     File  destination = new File(Environment.getExternalStorageDirectory(),
+                System.currentTimeMillis() + ".jpg");
+
+        FileOutputStream fo;
+        try {
+            destination.createNewFile();
+            fo = new FileOutputStream(destination);
+            if(destination !=null)
+            {
+                // Toast.makeText(this, "path is"+destination.getAbsolutePath(), Toast.LENGTH_SHORT).show();
+            }else {
+                Toast.makeText(this, "something wrong", Toast.LENGTH_SHORT).show();
+            }
+            fo.write(bytes.toByteArray());
+            fo.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+       // profile_image.setImageBitmap(thumbnail);
+
+
+        if (trandmark_cerAnInt == 1) {
+            trandmark_cerFile = new File(String.valueOf(destination));
+
+            if (trandmark_cerFile.exists()) {
+                trandmark_cer.setImageResource(R.drawable.docfound);
+                Toast.makeText(this, "yes", Toast.LENGTH_SHORT).show();
+            }
+            trandmark_cerAnInt = 0;
+        } else if (others_cerAnInt == 1) {
+            others_cerFile = new File(String.valueOf(destination));
+            if (others_cerFile.exists()) {
+                others_cer.setImageResource(R.drawable.docfound);
+                Toast.makeText(this, "yes", Toast.LENGTH_SHORT).show();
+            }
+            others_cerAnInt = 0;
+        } else if (gst_cerAnInt == 1) {
+            gst_cerFile = new File(String.valueOf(destination));
+            if (gst_cerFile.exists()) {
+                gst_cer.setImageResource(R.drawable.docfound);
+                Toast.makeText(this, "yes", Toast.LENGTH_SHORT).show();
+            }
+            gst_cerAnInt = 0;
+        } else if (copyright_cerAnInt == 1) {
+            copyright_cerFile = new File(String.valueOf(destination));
+            if (copyright_cerFile.exists()) {
+                copyright_cer.setImageResource(R.drawable.docfound);
+                Toast.makeText(this, "yes", Toast.LENGTH_SHORT).show();
+            }
+            copyright_cerAnInt = 0;
+        } else if (degree_cerAnInt == 1) {
+            degree_cerFile = new File(String.valueOf(destination));
+            if (degree_cerFile.exists()) {
+                degree_cer.setImageResource(R.drawable.docfound);
+                Toast.makeText(this, "yes", Toast.LENGTH_SHORT).show();
+            }
+            degree_cerAnInt = 0;
+        }
+
 
     }
 

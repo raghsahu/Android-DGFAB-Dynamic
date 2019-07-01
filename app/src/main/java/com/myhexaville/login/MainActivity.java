@@ -1,9 +1,12 @@
 package com.myhexaville.login;
 
+import android.Manifest;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.content.pm.PackageManager;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -11,6 +14,9 @@ import android.view.View;
 import com.myhexaville.login.databinding.ActivityMainBinding;
 import com.myhexaville.login.login.LoginFragment;
 import com.myhexaville.login.login.SignUpFragment;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
@@ -22,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     private ActivityMainBinding binding;
     private boolean isLogin = true;
+    public static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +42,11 @@ public class MainActivity extends AppCompatActivity {
                 .replace(R.id.login_fragment, topLoginFragment)
                 .replace(R.id.sign_up_fragment, topSignUpFragment)
                 .commit();
+
+        if(checkAndRequestPermissions()) {
+            // carry on the normal flow, as the case of  permissions  granted.
+        }
+
 
         binding.loginFragment.setRotation(-90);
 
@@ -50,6 +62,34 @@ public class MainActivity extends AppCompatActivity {
 
         binding.loginFragment.setVisibility(INVISIBLE);
     }
+
+    //*******************************************************************
+    private  boolean checkAndRequestPermissions() {
+        int permissionCamara = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA);
+        int permissionStorage = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        int permissionStorage1 = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE);
+        //int permissionPhone = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE);
+
+        List<String> listPermissionsNeeded = new ArrayList<>();
+        if (permissionCamara != PackageManager.PERMISSION_GRANTED) {
+            listPermissionsNeeded.add(Manifest.permission.CAMERA);
+        }
+        if (permissionStorage != PackageManager.PERMISSION_GRANTED) {
+            listPermissionsNeeded.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        }
+        if (permissionStorage1 != PackageManager.PERMISSION_GRANTED) {
+            listPermissionsNeeded.add(Manifest.permission.READ_EXTERNAL_STORAGE);
+        }
+//    if (permissionPhone != PackageManager.PERMISSION_GRANTED) {
+//        listPermissionsNeeded.add(Manifest.permission.READ_PHONE_STATE);
+//    }
+        if (!listPermissionsNeeded.isEmpty()) {
+            ActivityCompat.requestPermissions(this, listPermissionsNeeded.toArray(new String[listPermissionsNeeded.size()]),REQUEST_ID_MULTIPLE_PERMISSIONS);
+            return false;
+        }
+        return true;
+    }
+//**********************************************************************
 
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
