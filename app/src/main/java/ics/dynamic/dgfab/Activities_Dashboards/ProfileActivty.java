@@ -29,6 +29,8 @@ import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
 import com.myhexaville.login.R;
+
+import ics.dynamic.dgfab.ScrollingActivity;
 import ics.dynamic.dgfab.SessionManage.SessionManager;
 import ics.dynamic.dgfab.Utils.Utilities;
 
@@ -55,7 +57,7 @@ import javax.net.ssl.HttpsURLConnection;
 public class ProfileActivty extends AppCompatActivity {
     TabLayout tabLayout;
     ViewPager viewPager;
-    TextView add_com;
+    TextView add_com ,jetpro;
     Toolbar toolbar_prff;
     private ProgressDialog dialog;
     SessionManager sessionManager;
@@ -72,7 +74,11 @@ public class ProfileActivty extends AppCompatActivity {
         sessionManager = new SessionManager(this);
         toolbar_prff = (Toolbar)findViewById(R.id.toolbar_prff);
         toolbar_prff.setNavigationIcon(R.drawable.home);
+//        Intent intent = new Intent(this , ScrollingActivity.class);
+//        startActivity(intent);
+      //  toolbar_prff.setNavigationIcon(R.drawable.home);
         header_cover_image = findViewById(R.id.header_cover_image);
+        jetpro = findViewById(R.id.jetpro);
        // prom = findViewById(R.id.prom);
         prom = findViewById(R.id.user_profile_photo);
         header_cover_image.setOnClickListener(new View.OnClickListener() {
@@ -422,6 +428,7 @@ public class ProfileActivty extends AppCompatActivity {
                 try {
                     Log.e("result at ", "get back" + result);
                     JSONObject jsonObject = new JSONObject(result);
+                    jetpro.setText(jsonObject.getJSONArray("data").getJSONObject(0).get("name").toString());
                     try {
                         Glide.with(ProfileActivty.this).applyDefaultRequestOptions(new RequestOptions().placeholder(R.drawable.prof).error(R.drawable.prof))
                                 .load("https://sdltechserv.in/dgfeb/uploads/" + jsonObject.getJSONArray("data").getJSONObject(0).getString("image"))

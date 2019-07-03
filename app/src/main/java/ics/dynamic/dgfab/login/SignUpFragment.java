@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Patterns;
@@ -21,8 +23,23 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import ics.dynamic.dgfab.APIanURLs.Api;
+import ics.dynamic.dgfab.APIanURLs.REtroURls;
+import ics.dynamic.dgfab.Activities_Dashboards.DashBoard;
+import ics.dynamic.dgfab.Adapters.Service_Adapter;
+import ics.dynamic.dgfab.AllParsings.GET_Services;
+import ics.dynamic.dgfab.AllParsings.GET_Services_Data;
+import ics.dynamic.dgfab.AllParsings.Registration_only;
 import ics.dynamic.dgfab.LogandReg.Registration_Step_1;
 import ics.dynamic.dgfab.AllParsings.Type_Sub_User_Data;
+import ics.dynamic.dgfab.SessionManage.SessionManager;
+import okhttp3.OkHttpClient;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 import com.myhexaville.login.R;
 
 import org.json.JSONArray;
@@ -39,6 +56,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.concurrent.TimeUnit;
 
 import javax.net.ssl.HttpsURLConnection;
 
@@ -46,6 +64,7 @@ public class SignUpFragment extends Fragment implements OnSignUpListener{
     private static final String TAG = "SignUpFragment";
     ArrayList<Type_Sub_User_Data> type_sub_user_data = new ArrayList<>();
    // ArrayList<String> SubTypestrings = new ArrayList<>();
+    SessionManager sessionManager;
     String SubTypestrings [];
     Button nxbtn;
     String Typestrings [];
@@ -62,7 +81,7 @@ public class SignUpFragment extends Fragment implements OnSignUpListener{
                              Bundle savedInstanceState) {
 
         View inflate = inflater.inflate(R.layout.fragment_signup, container, false);
-
+        sessionManager = new SessionManager(getActivity());
 
         main_type = inflate.findViewById(R.id.typeuser);
         sub_main_type = inflate.findViewById(R.id.subtype);
@@ -76,36 +95,47 @@ public class SignUpFragment extends Fragment implements OnSignUpListener{
         mobile = inflate.findViewById(R.id.mobile);
         nxbtn = inflate.findViewById(R.id.nxbtn);
         Typestrings = new String[main_type.getCount()];
-        nxbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(name.getText().toString().length() !=0 && com_name.getText().toString().length()!=0 && email.getText().toString().length()!=0
-                        && password.getText().toString().length() !=0) {
-                    if(isValidEmail(getActivity() ,email.getText().toString()) && mobile.getText().toString().length() ==10)
-                    {
-                        Intent intent = new Intent(getActivity(), Registration_Step_1.class);
-                        intent.putExtra("name" , name.getText().toString());
-                        intent.putExtra("com_name" , com_name.getText().toString());
-                        intent.putExtra("email" , email.getText().toString());
-                        intent.putExtra("password" , password.getText().toString());
-                        intent.putExtra("address" , address.getText().toString());
-                        intent.putExtra("mobile" , mobile.getText().toString());
-                        startActivity(intent);
-                    }else {
-                        if(mobile.getText().toString().length() !=10)
-                        {
-                            mobile.setError("Mobile should be exactly 10 digit");
-                        }
-                        if(isValidEmail(getActivity(), email.getText().toString())) {
-                            email.setError("Email is not valid");
-                        }
-                    }
-
-                }else {
-                    Toast.makeText(getActivity(), "Please fill all requirements", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+//        nxbtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if(name.getText().toString().length() !=0 && com_name.getText().toString().length()!=0 && email.getText().toString().length()!=0
+//                        && password.getText().toString().length() !=0) {
+//                    Log.e("Admin/Owner" , ""+sub_main_type.getSelectedItem());
+//                    if(isValidEmail(getActivity() ,email.getText().toString()) && mobile.getText().toString().length() ==10)
+//                    {
+//
+//                        if(sub_main_type.getSelectedItem().equals("Admin/Owner")) {
+//                            Toast.makeText(getActivity(), "at adminwa", Toast.LENGTH_SHORT).show();
+//                            Intent intent = new Intent(getActivity(), Registration_Step_1.class);
+//                            intent.putExtra("name", name.getText().toString());
+//                            intent.putExtra("com_name", com_name.getText().toString());
+//                            intent.putExtra("email", email.getText().toString());
+//                            intent.putExtra("password", password.getText().toString());
+//                            intent.putExtra("address", address.getText().toString());
+//                            intent.putExtra("mobile", mobile.getText().toString());
+//                            startActivity(intent);
+//                        }
+//                        else
+//                            {
+//                            Toast.makeText(getActivity(), "at non adminwa", Toast.LENGTH_SHORT).show();
+//                            RegisteronlyStaff(type_sub_user_data.get(sub_main_type.getSelectedItemPosition()).getId(),"3",name.getText().toString(),email.getText().toString(), password.getText().toString() , address.getText().toString(),mobile.getText().toString() ,com_name.getText().toString());
+//
+//                        }
+//                    }else {
+//                        if(mobile.getText().toString().length() !=10)
+//                        {
+//                            mobile.setError("Mobile should be exactly 10 digit");
+//                        }
+//                        if(isValidEmail(getActivity(), email.getText().toString())) {
+//                            email.setError("Email is not valid");
+//                        }
+//                    }
+//
+//                }else {
+//                    Toast.makeText(getActivity(), "Please fill all requirements", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
         for(int k=0;k<main_type.getCount();k++)
         {
             Typestrings[k] = String.valueOf(main_type.getItemAtPosition(k));
@@ -145,15 +175,24 @@ public class SignUpFragment extends Fragment implements OnSignUpListener{
                     if(isValidEmail(getActivity(), email.getText().toString()) && mobile.getText().toString().length() ==10)
                     {
                         if(main_type.getSelectedItem().toString().startsWith("Manu")) {
-                            Intent intent = new Intent(getActivity(), Registration_Step_1.class);
-                            intent.putExtra("name", name.getText().toString());
-                            intent.putExtra("com_name", com_name.getText().toString());
-                            intent.putExtra("email", email.getText().toString());
-                            intent.putExtra("password", password.getText().toString());
-                            intent.putExtra("address", address.getText().toString());
-                            intent.putExtra("mobile", mobile.getText().toString());
-                            startActivity(intent);
+                            Log.e("admin is" , ""+sub_main_type.getSelectedItem());
+                            if(sub_main_type.getSelectedItem().equals("Admin/Owner")) {
+
+                                Intent intent = new Intent(getActivity(), Registration_Step_1.class);
+                                intent.putExtra("name", name.getText().toString());
+                                intent.putExtra("com_name", com_name.getText().toString());
+                                intent.putExtra("email", email.getText().toString());
+                                intent.putExtra("password", password.getText().toString());
+                                intent.putExtra("address", address.getText().toString());
+                                intent.putExtra("mobile", mobile.getText().toString());
+                                startActivity(intent);
+                            }else {
+                                Toast.makeText(getActivity(), "at non adminwa", Toast.LENGTH_SHORT).show();
+                                RegisteronlyStaff(type_sub_user_data.get(sub_main_type.getSelectedItemPosition()).getId(),"3",name.getText().toString(),email.getText().toString(), password.getText().toString() , address.getText().toString(),mobile.getText().toString() ,com_name.getText().toString());
+                            }
                         }else {
+//                            Toast.makeText(getActivity(), "at non adminwa", Toast.LENGTH_SHORT).show();
+//                            RegisteronlyStaff(type_sub_user_data.get(sub_main_type.getSelectedItemPosition()).getId(),"3",name.getText().toString(),email.getText().toString(), password.getText().toString() , address.getText().toString(),mobile.getText().toString() ,com_name.getText().toString());
                             Toast.makeText(getActivity(), "Other  Moduler are in work", Toast.LENGTH_SHORT).show();
                         }
                     }else {
@@ -183,6 +222,51 @@ public class SignUpFragment extends Fragment implements OnSignUpListener{
 
         return inflate;
     }
+
+    private void RegisteronlyStaff(Object selectedItem, String mainselect, String name, String email, String password, String address, String mobilkr, String companyname) {
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMax(1000);
+        progressDialog.setTitle("Registering Please Wait");
+        progressDialog.setCancelable(false);
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDialog.show();
+        OkHttpClient client = new OkHttpClient.Builder()
+                .connectTimeout(100, TimeUnit.SECONDS)
+                .readTimeout(100,TimeUnit.SECONDS).build();
+        Retrofit RetroLogin = new Retrofit.Builder()
+                .baseUrl(REtroURls.The_Base).client(client).addConverterFactory(GsonConverterFactory.create())
+                .build();
+        Api AbloutApi = RetroLogin.create(Api.class);
+        Call<Registration_only> get_aboutCall = AbloutApi.REGISTRATION_ONLY_CALL(main_type.toString(),name,email,mobilkr,address,companyname,password,mainselect);
+        get_aboutCall.enqueue(new Callback<Registration_only>() {
+            @Override
+            public void onResponse(Call<Registration_only> call, Response<Registration_only> response) {
+//                Toast.makeText(getActivity(), ""+response.body().getMassage().getId(), Toast.LENGTH_SHORT).show();
+                //   SubTypestrings = new String[response.body().getData().size()];
+                Log.e("responce is " , ""+response.body().getResponce());
+                Log.e("responce message is " , ""+response.body().getMassage());
+                Toast.makeText(getActivity(), "responce is "+response, Toast.LENGTH_SHORT).show();
+                progressDialog.dismiss();
+                if(response.body().getResponce().booleanValue() == true)
+                {
+                    sessionManager.serverEmailLogin(Integer.valueOf(response.body().getMassage().getId()));
+                    Intent intent = new Intent(getActivity() , DashBoard.class);
+                    startActivity(intent);
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<Registration_only> call, Throwable t) {
+                Toast.makeText(getActivity(), ""+t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+
+
+
     public static boolean isValidEmail(FragmentActivity activity, CharSequence target) {
         Toast.makeText(activity, "target "+(!TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target).matches()), Toast.LENGTH_SHORT).show();
         return (!TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target).matches());

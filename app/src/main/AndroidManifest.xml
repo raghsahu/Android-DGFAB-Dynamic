@@ -14,7 +14,11 @@
         android:label="DGFAB"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="ics.dynamic.dgfab.Buyer_Main_Navigation"></activity>
+        <activity
+            android:name="ics.dynamic.dgfab.ScrollingActivity"
+            android:label="@string/title_activity_scrolling"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name="ics.dynamic.dgfab.Buyer_Main_Navigation" />
         <activity android:name="ics.dynamic.dgfab.MainActivity" />
         <activity android:name="ics.dynamic.dgfab.Activities_Dashboards.ProfileActivty" />
         <activity
@@ -22,7 +26,6 @@
             android:label="@string/title_activity_dash_board"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name="ics.dynamic.dgfab.LogandReg.Registration_Step_3" />
-
         <activity android:name="ics.dynamic.dgfab.LogandReg.Registration_Step_2" />
         <activity android:name="ics.dynamic.dgfab.LogandReg.Registration_Step_1" />
 

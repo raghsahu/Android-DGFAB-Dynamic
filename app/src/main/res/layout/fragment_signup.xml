@@ -10,7 +10,6 @@
         android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
-
         android:layout_height="match_parent"
         android:orientation="vertical">
 
@@ -138,7 +137,6 @@
             android:layout_marginTop="16dp"
             android:background="@drawable/bubble"
             android:gravity="center_vertical"
-            android:hint="@string/confirm_password"
             android:inputType="textPassword"
             android:paddingEnd="32dp"
             android:paddingStart="32dp"
