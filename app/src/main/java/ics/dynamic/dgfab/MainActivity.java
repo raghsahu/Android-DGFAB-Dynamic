@@ -3,6 +3,7 @@ package ics.dynamic.dgfab;
 import android.Manifest;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.TextView;
 
 import com.myhexaville.login.R;
 import com.myhexaville.login.databinding.ActivityMainBinding;
@@ -30,11 +32,23 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     private boolean isLogin = true;
     public static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 1;
+    TextView tv_skip_login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+
+        tv_skip_login=findViewById(R.id.tv_skip_login);
+
+        tv_skip_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,Buyer_Main_Navigation.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         LoginFragment topLoginFragment = new LoginFragment();
         SignUpFragment topSignUpFragment = new SignUpFragment();

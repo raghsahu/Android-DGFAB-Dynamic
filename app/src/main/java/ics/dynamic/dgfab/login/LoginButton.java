@@ -127,7 +127,7 @@ public class LoginButton extends View {
 
         signUpPaint = new Paint();
         signUpPaint.setColor(ContextCompat.getColor(getContext(), R.color.text));
-        signUpPaint.setTextSize(dpToPixels(64));
+        signUpPaint.setTextSize(dpToPixels(16));
         signUpPaint.setTextAlign(CENTER);
 //        signUpPaint.setAlpha(255);
     }
@@ -173,7 +173,8 @@ public class LoginButton extends View {
         int loginWidth = r.right;
         orPaint.getTextBounds(getContext().getString(R.string.or).toUpperCase(), 0, 2, r);
         float margin = (currentLoginX - loginWidth / 2) - dpToPixels(32) - r.right;
-        signUpOrX = width - signUpWidth - dpToPixels(32) - r.right - margin;
+        //signUpOrX = width - signUpWidth - dpToPixels(32) - r.right - margin;
+        signUpOrX = dpToPixels(5);
 
         currentLoginY = buttonCenter + dpToPixels(8);
         currentSignUpTextY = buttonCenter + dpToPixels(8);
@@ -237,9 +238,9 @@ public class LoginButton extends View {
         } else {
             canvas.drawPath(signUpButtonPath, signUpButtonPaint);
             canvas.drawArc(
-                    currentLeft - getButtonHeight() / 2 + currentArcX,
+                    currentRight - getButtonHeight() / 2 + currentArcX,
                     buttonTop,
-                    currentLeft + getButtonHeight() / 2 - currentArcX,
+                    currentRight + getButtonHeight() / 2 - currentArcX,
                     buttonBottom,
                     0,
                     360,
@@ -248,7 +249,7 @@ public class LoginButton extends View {
 
             canvas.drawText(getString(R.string.or), signUpOrX, buttonCenter + dpToPixels(8), orPaint);
 
-            canvas.drawText(getString(R.string.sign_up), currentSignUpTextX, currentSignUpTextY, signUpPaint);
+            canvas.drawText(getString(R.string.sign_up), currentSignUpTextX, startSignUpTextY, signUpPaint);
         }
     }
 
@@ -289,7 +290,7 @@ public class LoginButton extends View {
                 currentLoginY = startLoginY - ((startLoginY - dpToPixels(457)) * fraction);
                 loginPaint.setTextSize(smallTextSize + ((largeTextSize - smallTextSize) * (fraction)));
             } else {
-                currentSignUpTextX = startSignUpTextX - ((startSignUpTextX - width / 2) * fraction);
+                currentSignUpTextX = startSignUpTextX - ((width / 2 - startSignUpTextX) * fraction);
                 currentSignUpTextY = startSignUpTextY - ((startSignUpTextY - dpToPixels(457)) * fraction);
                 signUpPaint.setTextSize(smallTextSize + ((largeTextSize - smallTextSize) * (fraction)));
             }
@@ -350,7 +351,7 @@ public class LoginButton extends View {
                 // bopttom reveal
                 signUpButtonPath.lineTo(width, currentBottomY);
                 signUpButtonPath.lineTo(currentBottomSignUpX, currentBottomY);
-                signUpButtonPath.lineTo(currentLeft, buttonBottom);
+                signUpButtonPath.lineTo(currentRight, buttonBottom);
             }
 
             currentX = 0;
