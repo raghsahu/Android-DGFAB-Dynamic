@@ -1,0 +1,822 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".Add_Products">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_addProd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start|center"
+                android:text="Add Products"
+                android:textColor="#fff"
+                android:textSize="18dp"
+                android:typeface="serif" />
+
+        </android.support.v7.widget.Toolbar>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="3dp"
+                    android:drawablePadding="5dp"
+
+                    android:src="@drawable/icons8picturesfolder96"
+                    android:text="Product"
+                    android:textColor="#000"
+                    android:textSize="14dp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="3dp"
+                    android:drawablePadding="5dp"
+                    android:text="Please Select Category"
+                    android:textColor="#000"
+                    android:textSize="14dp" />
+
+                <Spinner
+                    android:id="@+id/spinproduct"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bt_bg"
+
+                    >
+
+                </Spinner>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="3dp"
+
+                    android:drawablePadding="5dp"
+                    android:text="Sub Category "
+                    android:textColor="#000"
+                    android:textSize="14dp" />
+
+                <Spinner
+                    android:padding="10dp"
+                    android:id="@+id/spntx"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bt_bg"
+                    >
+
+                </Spinner>
+                <Button
+                    android:id="@+id/nxpx"
+                    android:text="Next"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="10dp"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="3dp"-->
+            <!--android:drawablePadding="5dp"-->
+            <!--android:text="Category"-->
+            <!--android:textColor="#000"-->
+            <!--android:textSize="14dp" />-->
+
+            <!--<Spinner-->
+            <!--android:id="@+id/spinproduct"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@drawable/bt_bg"-->
+            <!--android:entries="@array/array_category"-->
+            <!--&gt;-->
+
+            <!--</Spinner>-->
+
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="10dp"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="3dp"-->
+
+            <!--android:drawablePadding="5dp"-->
+            <!--android:text="Type"-->
+            <!--android:textColor="#000"-->
+            <!--android:textSize="14dp" />-->
+
+            <!--<Spinner-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@drawable/bt_bg"-->
+            <!--android:entries="@array/array_category"-->
+            <!--&gt;-->
+
+            <!--</Spinner>-->
+
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="10dp"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="3dp"-->
+
+            <!--android:drawablePadding="5dp"-->
+            <!--android:text="Model Number"-->
+            <!--android:textColor="#000"-->
+            <!--android:textSize="14dp" />-->
+
+            <!--<EditText-->
+            <!--android:id="@+id/dgsdfghjghj"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@drawable/bt_bg"-->
+            <!--android:editable="false"-->
+            <!--android:enabled="false"-->
+            <!--android:inputType="textPersonName" />-->
+
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="10dp"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="3dp"-->
+
+            <!--android:drawablePadding="5dp"-->
+            <!--android:text="Place of Origin"-->
+            <!--android:textColor="#000"-->
+            <!--android:textSize="14dp" />-->
+
+            <!--<EditText-->
+            <!--android:id="@+id/dgsdfsdf"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@drawable/bt_bg"-->
+            <!--android:editable="false"-->
+            <!--android:enabled="false"-->
+            <!--android:inputType="textPersonName" />-->
+
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="10dp"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="3dp"-->
+
+            <!--android:drawablePadding="5dp"-->
+            <!--android:text="Brand name"-->
+            <!--android:textColor="#000"-->
+            <!--android:textSize="14dp" />-->
+
+            <!--<EditText-->
+            <!--android:id="@+id/dgdfsd"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@drawable/bt_bg"-->
+            <!--android:editable="false"-->
+            <!--android:enabled="false"-->
+            <!--android:inputType="textPersonName" />-->
+
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="10dp"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="3dp"-->
+
+            <!--android:drawablePadding="5dp"-->
+            <!--android:text="More Details"-->
+            <!--android:textColor="#000"-->
+            <!--android:textSize="14dp" />-->
+
+            <!--<EditText-->
+            <!--android:id="@+id/dgsdf"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@drawable/bt_bg"-->
+            <!--android:editable="false"-->
+            <!--android:enabled="false"-->
+            <!--android:inputType="textPersonName" />-->
+
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="10dp"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="3dp"-->
+
+            <!--android:drawablePadding="5dp"-->
+            <!--android:text="Product Name"-->
+            <!--android:textColor="#000"-->
+            <!--android:textSize="14dp" />-->
+
+            <!--<EditText-->
+            <!--android:id="@+id/dgasdasd"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@drawable/bt_bg"-->
+            <!--android:editable="false"-->
+            <!--android:enabled="false"-->
+            <!--android:inputType="textPersonName" />-->
+
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="10dp"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="3dp"-->
+
+            <!--android:drawablePadding="5dp"-->
+            <!--android:text="Product Photo"-->
+            <!--android:textColor="#000"-->
+            <!--android:textSize="14dp" />-->
+
+            <!--<EditText-->
+            <!--android:id="@+id/dg"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@drawable/bt_bg"-->
+            <!--android:editable="false"-->
+            <!--android:enabled="false"-->
+            <!--android:inputType="textPersonName" />-->
+
+            <!--</LinearLayout>-->
+
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="3dp"-->
+            <!--android:drawablePadding="5dp"-->
+            <!--android:text="Product Keywords"-->
+            <!--android:textColor="#000"-->
+            <!--android:textSize="14dp" />-->
+
+            <!--<EditText-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@drawable/bt_bg"-->
+            <!--android:inputType="textPersonName" />-->
+
+            <!--</LinearLayout>-->
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="3dp"-->
+            <!--android:drawablePadding="5dp"-->
+            <!--android:text="Copy and Paste Video Links from Youtube"-->
+            <!--android:textColor="#000"-->
+            <!--android:textSize="14dp" />-->
+
+            <!--<EditText-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@drawable/bt_bg"-->
+            <!--android:inputType="textPersonName" />-->
+
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="3dp"-->
+            <!--android:drawablePadding="5dp"-->
+            <!--android:text="Listing Description"-->
+            <!--android:textColor="#000"-->
+            <!--android:textSize="14dp" />-->
+
+            <!--<EditText-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="80dp"-->
+            <!--android:background="@drawable/bt_bg"-->
+            <!--android:inputType="textPersonName" />-->
+
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="3dp"-->
+            <!--android:drawablePadding="5dp"-->
+            <!--android:text="Detailed Description"-->
+            <!--android:textColor="#000"-->
+            <!--android:textSize="14dp" />-->
+
+            <!--<EditText-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="80dp"-->
+            <!--android:background="@drawable/bt_bg"-->
+            <!--android:inputType="textPersonName" />-->
+
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="3dp"-->
+            <!--android:drawablePadding="5dp"-->
+            <!--android:text="Select Payments And Shipping Terms"-->
+            <!--android:textColor="#000"-->
+            <!--android:textStyle="bold"-->
+            <!--android:textSize="14dp" />-->
+
+            <!--&lt;!&ndash;<EditText&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:background="@drawable/bt_bg"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:inputType="textPersonName" />&ndash;&gt;-->
+
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="3dp"-->
+            <!--android:drawablePadding="5dp"-->
+            <!--android:text="Min. Order Quantity"-->
+            <!--android:textColor="#000"-->
+            <!--android:textSize="14dp" />-->
+
+            <!--<EditText-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@drawable/bt_bg"-->
+            <!--android:inputType="textPersonName" />-->
+
+            <!--</LinearLayout>-->
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="3dp"-->
+            <!--android:drawablePadding="5dp"-->
+            <!--android:text="Ex. Works Price"-->
+            <!--android:textColor="#000"-->
+            <!--android:textSize="14dp" />-->
+
+            <!--<EditText-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@drawable/bt_bg"-->
+            <!--android:inputType="textPersonName" />-->
+
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="3dp"-->
+            <!--android:drawablePadding="5dp"-->
+            <!--android:text="FOB price for Destributers"-->
+            <!--android:textColor="#000"-->
+            <!--android:textSize="14dp" />-->
+
+            <!--<EditText-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@drawable/bt_bg"-->
+            <!--android:inputType="textPersonName" />-->
+
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="3dp"-->
+            <!--android:drawablePadding="5dp"-->
+            <!--android:text="FOB Price for Dealers"-->
+            <!--android:textColor="#000"-->
+            <!--android:textSize="14dp" />-->
+
+            <!--<EditText-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@drawable/bt_bg"-->
+            <!--android:inputType="textPersonName" />-->
+
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="3dp"-->
+            <!--android:drawablePadding="5dp"-->
+            <!--android:text="Port"-->
+            <!--android:textColor="#000"-->
+            <!--android:textSize="14dp" />-->
+
+            <!--<EditText-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@drawable/bt_bg"-->
+            <!--android:inputType="textPersonName" />-->
+
+            <!--</LinearLayout>-->
+
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="3dp"-->
+            <!--android:drawablePadding="5dp"-->
+            <!--android:text="Payment Terms:"-->
+            <!--android:textColor="#000"-->
+            <!--android:textSize="14dp" />-->
+
+
+            <!--</LinearLayout>-->
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center"-->
+            <!--android:weightSum="1"-->
+            <!--android:orientation="horizontal">-->
+
+            <!--<CheckBox-->
+            <!--android:layout_weight="0.5"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Advance Payment"-->
+            <!--/>-->
+
+            <!--<CheckBox-->
+            <!--android:layout_weight="0.5"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Other"-->
+            <!--/>-->
+
+            <!--</LinearLayout>-->
+
+
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="3dp"-->
+            <!--android:drawablePadding="5dp"-->
+            <!--android:text="Show Buyers your Ability to Suppliers"-->
+            <!--android:textColor="#000"-->
+            <!--android:textStyle="bold"-->
+            <!--android:textSize="14dp" />-->
+
+            <!--&lt;!&ndash;<EditText&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:background="@drawable/bt_bg"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:inputType="textPersonName" />&ndash;&gt;-->
+
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="3dp"-->
+            <!--android:drawablePadding="5dp"-->
+            <!--android:text="Production Capacity"-->
+            <!--android:textColor="#000"-->
+            <!--android:textSize="14dp" />-->
+
+            <!--<EditText-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@drawable/bt_bg"-->
+            <!--android:inputType="textPersonName" />-->
+
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="3dp"-->
+            <!--android:drawablePadding="5dp"-->
+            <!--android:text="Delevery Time"-->
+            <!--android:textColor="#000"-->
+            <!--android:textSize="14dp" />-->
+
+            <!--<EditText-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@drawable/bt_bg"-->
+            <!--android:inputType="textPersonName" />-->
+
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="3dp"-->
+            <!--android:drawablePadding="5dp"-->
+            <!--android:text="Packaging Details"-->
+            <!--android:textColor="#000"-->
+            <!--android:textSize="14dp" />-->
+
+            <!--<EditText-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="80dp"-->
+            <!--android:background="@drawable/bt_bg"-->
+            <!--android:inputType="textPersonName" />-->
+
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="3dp"-->
+            <!--android:drawablePadding="5dp"-->
+            <!--android:text="Other Details"-->
+            <!--android:textStyle="bold"-->
+            <!--android:textColor="#000"-->
+            <!--android:textSize="14dp" />-->
+
+            <!--&lt;!&ndash;<EditText&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:background="@drawable/bt_bg"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:inputType="textPersonName" />&ndash;&gt;-->
+
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="3dp"-->
+            <!--android:drawablePadding="5dp"-->
+            <!--android:text="Product Group"-->
+            <!--android:textColor="#000"-->
+            <!--android:textSize="14dp" />-->
+
+            <!--<EditText-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@drawable/bt_bg"-->
+            <!--android:inputType="textPersonName" />-->
+
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="3dp"-->
+            <!--android:drawablePadding="5dp"-->
+            <!--android:text="Status"-->
+            <!--android:textColor="#000"-->
+            <!--android:textSize="14dp" />-->
+
+            <!--&lt;!&ndash;<EditText&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:background="@drawable/bt_bg"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:inputType="textPersonName" />&ndash;&gt;-->
+
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center"-->
+            <!--android:weightSum="1"-->
+            <!--android:orientation="horizontal">-->
+
+            <!--<RadioButton-->
+            <!--android:layout_weight="0.5"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Active"-->
+            <!--/>-->
+
+            <!--<RadioButton-->
+            <!--android:layout_weight="0.5"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="InActive"-->
+            <!--/>-->
+
+            <!--</LinearLayout>-->
+
+
+            <!--<Button-->
+            <!--android:id="@+id/add_pro"-->
+            <!--android:layout_marginTop="20dp"-->
+            <!--android:textColor="#fff"-->
+            <!--android:textAllCaps="false"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:layout_marginRight="10dp"-->
+            <!--android:background="@drawable/btn_shape"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Add Product" />-->
+            <!--</LinearLayout>-->
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
