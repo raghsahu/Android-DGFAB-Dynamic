@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.LogandReg.Registration_Step_2">
+    tools:context="ics.dynamic.dgfab.LogandReg.Registration_Step_2">
     <android.support.v7.widget.Toolbar
 
         android:background="@color/colorPrimary"

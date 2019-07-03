@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".Activities_Dashboards.DashBoard"
+    tools:context="ics.dynamic.dgfab.Activities_Dashboards.DashBoard"
     tools:showIn="@layout/app_bar_dash_board">
 
     <LinearLayout
@@ -106,13 +106,26 @@
                         </LinearLayout>
                     </android.support.v7.widget.Toolbar>
 
-                    <!--<com.ics.dgfabapp.Calendar.HorizontalCalendarView-->
-                        <!--android:id="@+id/calendarView"-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--app:sizeBottomText="14sp"-->
-                        <!--app:sizeMiddleText="20sp"-->
-                        <!--app:textColorSelected="#FFFF" />-->
+                    <devs.mulham.horizontalcalendar.HorizontalCalendarView
+                        android:id="@+id/calendarView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:sizeBottomText="14sp"
+                        app:sizeMiddleText="20sp"
+                        app:textColorSelected="#FFFF" />
+
+                    <TextView
+                        android:id="@+id/tv_cal_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#fff"
+                        android:background="@color/colorPrimary"
+                        android:text=" "
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:padding="5dp"
+
+                        />
 
                 </android.support.design.widget.AppBarLayout>
 
