@@ -9,6 +9,7 @@ import android.view.View;
 
 import com.myhexaville.login.R;
 
+
 public class ScrollingActivity extends AppCompatActivity {
 
     @Override

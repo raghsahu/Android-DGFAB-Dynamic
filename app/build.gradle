@@ -18,7 +18,9 @@ android {
     }
     defaultConfig {
         vectorDrawables.useSupportLibrary = true
-        applicationId "com.myhexaville.login"
+//        applicationId "com.myhexaville.login"
+       applicationId "ics.dynamic.dgfab"
+
         minSdkVersion 16
         targetSdkVersion 27
         versionCode 1
