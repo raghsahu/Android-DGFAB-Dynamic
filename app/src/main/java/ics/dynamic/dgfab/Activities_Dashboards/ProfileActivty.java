@@ -71,6 +71,7 @@ public class ProfileActivty extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_activty);
+
         sessionManager = new SessionManager(this);
         toolbar_prff = (Toolbar)findViewById(R.id.toolbar_prff);
         toolbar_prff.setNavigationIcon(R.drawable.home);

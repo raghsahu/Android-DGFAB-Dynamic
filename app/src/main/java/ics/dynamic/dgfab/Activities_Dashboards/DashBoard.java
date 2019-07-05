@@ -34,6 +34,8 @@ import com.bumptech.glide.request.target.Target;
 
 import ics.dynamic.dgfab.MainActivity;
 import com.myhexaville.login.R;
+
+import ics.dynamic.dgfab.ScrollingActivity;
 import ics.dynamic.dgfab.SessionManage.SessionManager;
 
 import org.json.JSONException;
@@ -196,6 +198,9 @@ public class DashBoard extends AppCompatActivity
         if (id == R.id.nav_home) {
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
+            Intent intent = new Intent(DashBoard.this , ScrollingActivity.class);
+            startActivity(intent);
+            finish();
 
         } else if (id == R.id.add_pro) {
             Intent intent=new Intent(DashBoard.this, AddProduct.class);
