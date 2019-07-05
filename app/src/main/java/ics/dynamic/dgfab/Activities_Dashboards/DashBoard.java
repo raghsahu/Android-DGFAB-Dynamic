@@ -32,6 +32,7 @@ import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import ics.dynamic.dgfab.MainActivity;
 import com.myhexaville.login.R;
 
@@ -59,7 +60,7 @@ import devs.mulham.horizontalcalendar.utils.HorizontalCalendarListener;
 
 public class DashBoard extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    ImageView imageView;
+    CircleImageView imageView;
     SessionManager sessionManager;
     NavigationView navigationView;
     TextView tv_cal_date;
@@ -198,7 +199,7 @@ public class DashBoard extends AppCompatActivity
         if (id == R.id.nav_home) {
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
-            Intent intent = new Intent(DashBoard.this , ScrollingActivity.class);
+            Intent intent = new Intent(DashBoard.this , ProfileActivty.class);
             startActivity(intent);
             finish();
 

@@ -50,12 +50,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        LoginFragment topLoginFragment = new LoginFragment();
-        SignUpFragment topSignUpFragment = new SignUpFragment();
-
+//        LoginFragment topLoginFragment = new LoginFragment();
+//        SignUpFragment topSignUpFragment = new SignUpFragment();
+        SignUpFragment topLoginFragment = new SignUpFragment();
+         LoginFragment topSignUpFragment = new LoginFragment();
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.login_fragment, topLoginFragment)
                 .replace(R.id.sign_up_fragment, topSignUpFragment)
+                .replace(R.id.login_fragment, topLoginFragment)
                 .commit();
 
         if(checkAndRequestPermissions()) {
@@ -65,17 +66,18 @@ public class MainActivity extends AppCompatActivity {
 
         binding.loginFragment.setRotation(-90);
 
-        binding.button.setOnSignUpListener(topSignUpFragment);
-        binding.button.setOnLoginListener(topLoginFragment);
+        binding.button.setOnSignUpListener(topLoginFragment);
+        binding.button.setOnLoginListener(topSignUpFragment);
 
         binding.button.setOnButtonSwitched(isLogin -> {
             binding.getRoot()
                     .setBackgroundColor(ContextCompat.getColor(
                             this,
-                            isLogin ? R.color.colorPrimary : R.color.secondPage));
+                            isLogin ? R.color.secondPage: R.color.colorPrimary));
         });
 
         binding.loginFragment.setVisibility(INVISIBLE);
+       // binding.signUpFragment.setVisibility(INVISIBLE);
     }
 
     //*******************************************************************

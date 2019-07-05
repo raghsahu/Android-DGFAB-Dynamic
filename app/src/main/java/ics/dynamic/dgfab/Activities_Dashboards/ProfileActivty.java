@@ -30,6 +30,7 @@ import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
 import com.myhexaville.login.R;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import ics.dynamic.dgfab.ScrollingActivity;
 import ics.dynamic.dgfab.SessionManage.SessionManager;
 import ics.dynamic.dgfab.Utils.Utilities;
@@ -61,7 +62,8 @@ public class ProfileActivty extends AppCompatActivity {
     Toolbar toolbar_prff;
     private ProgressDialog dialog;
     SessionManager sessionManager;
-    ImageView prom ,header_cover_image;
+    ImageView header_cover_image;
+    CircleImageView prom;
     File Propic,Coverpic;
     int c,p;
     private int RESULT_PICK_IMAGE = 101;

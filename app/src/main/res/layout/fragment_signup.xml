@@ -148,7 +148,7 @@
             android:layout_height="59dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp"
-            android:background="@drawable/bubble"
+            android:background="@drawable/bt_bg"
             android:gravity="center_vertical"
             android:hint="@string/confirm_password"
             android:paddingStart="32dp"

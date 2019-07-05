@@ -215,13 +215,13 @@ public class LoginButton extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        if (isLogin) {
+        if (!isLogin) {
             canvas.drawText(getString(R.string.sign_up), width / 2, dpToPixels(457), signUpPaint);
         } else {
             canvas.drawText(getString(R.string.login), width / 2, dpToPixels(457), loginPaint);
         }
 
-        if (isLogin) {
+        if (!isLogin) {
             canvas.drawPath(loginButtonPath, loginButtonPaint);
             canvas.drawArc(
                     currentRight - getButtonHeight() / 2 + currentArcX,
@@ -274,7 +274,7 @@ public class LoginButton extends View {
             currentLeft = startLeft - gone;
 
             // fade out sign up text to 0
-            if (isLogin) {
+            if (!isLogin) {
                 signUpPaint.setAlpha((int) (255 - 255 * fraction)); // fade out sign up large text
             } else {
                 loginPaint.setAlpha((int) (255 - 255 * fraction)); // fade out login large text
@@ -285,7 +285,7 @@ public class LoginButton extends View {
             }
 
             // move login text to center and scale
-            if (isLogin) {
+            if (!isLogin) {
                 currentLoginX = startLoginX + ((width / 2 - startLoginX) * fraction);
                 currentLoginY = startLoginY - ((startLoginY - dpToPixels(457)) * fraction);
                 loginPaint.setTextSize(smallTextSize + ((largeTextSize - smallTextSize) * (fraction)));
@@ -326,7 +326,7 @@ public class LoginButton extends View {
                 currentBottomY = height;
             }
 
-            if (isLogin) {
+            if (!isLogin) {
                 loginButtonPath.reset();
                 loginButtonPath.moveTo(0, buttonBottom);
                 loginButtonPath.lineTo(currentRight, buttonBottom);
@@ -379,7 +379,7 @@ public class LoginButton extends View {
 
                 isLogin = !isLogin;
 
-                if (isLogin) {
+                if (!isLogin) {
                     currentLoginX = startLoginX;
                     currentLoginY = startLoginY;
                     loginPaint.setAlpha(255);
@@ -392,7 +392,9 @@ public class LoginButton extends View {
                 currentSignUpTextY = startSignUpTextY;
 
                 int hideButton = startRight + getButtonHeight() / 2;
-                if (!isLogin) {
+           ///**************************************************************!login change****************
+
+                if (isLogin) {
                     currentLeft += hideButton;
                 } else {
                     currentRight -= hideButton;
@@ -400,7 +402,7 @@ public class LoginButton extends View {
 
 
                 //move texts
-                if (!isLogin) {
+                if (isLogin) {
                     signUpOrX += hideButton;
                     currentSignUpTextX += hideButton;
                 } else {
@@ -437,7 +439,7 @@ public class LoginButton extends View {
                 buttonBounce.addUpdateListener(a -> {
                     int v = (int) a.getAnimatedValue();
 
-                    if (!isLogin) {
+                    if (isLogin) {
                         currentLeft = hiddenButtonLeft - v;
 
                         signUpOrX = endSignUpOrX - v;
