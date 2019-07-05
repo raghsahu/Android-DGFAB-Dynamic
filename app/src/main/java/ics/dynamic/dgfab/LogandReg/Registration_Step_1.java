@@ -1,6 +1,8 @@
 package ics.dynamic.dgfab.LogandReg;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
@@ -8,6 +10,8 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import ics.dynamic.dgfab.APIanURLs.Api;
@@ -28,10 +32,14 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static ics.dynamic.dgfab.Adapters.Service_Adapter.Servicenames;
+
 public class Registration_Step_1 extends AppCompatActivity {
     RecyclerView serv_id;
     Service_Adapter service_adapter;
+    Button next;
     private ProgressDialog progressDialog;
+    String ConcatService;
     String name, email, com_name, password, address, mobile;
     ArrayList<GET_Services_Data> get_services_data = new ArrayList<>();
     GridLayoutManager gridLayoutManager;
@@ -41,18 +49,43 @@ public class Registration_Step_1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration_);
         serv_id = findViewById(R.id.serv_id);
-//        name = getIntent().getStringExtra("name");
-//        email = getIntent().getStringExtra("email");
-//        com_name = getIntent().getStringExtra("com_name");
-//        password = getIntent().getStringExtra("password");
-//        address = getIntent().getStringExtra("address");
-//        mobile = getIntent().getStringExtra("mobile");
-//        Log.e("name", "" + name);
-//        Log.e("email", "" + email);
-//        Log.e("com_name", "" + com_name);
-//        Log.e("password", "" + password);
-//        Log.e("address", "" + address);
-//        Log.e("mobile", "" + mobile);
+        serv_id = findViewById(R.id.serv_id);
+        name = ((Activity) this).getIntent().getStringExtra("name");
+        email = ((Activity) this).getIntent().getStringExtra("email");
+        com_name = ((Activity) this).getIntent().getStringExtra("com_name");
+        password = ((Activity) this).getIntent().getStringExtra("password");
+        address = ((Activity) this).getIntent().getStringExtra("address");
+        mobile = ((Activity) this).getIntent().getStringExtra("mobile");
+        Log.e("name", "" + name);
+        Log.e("email", "" + email);
+        Log.e("com_name", "" + com_name);
+        Log.e("password", "" + password);
+        Log.e("address", "" + address);
+        Log.e("mobile", "" + mobile);
+        next = findViewById(R.id.next);
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                for(int k=0 ; k<Servicenames.size();k++) {
+                    if(k==0) {
+                       ConcatService= ConcatService.concat(Servicenames.get(k));
+                    }else {
+                       ConcatService = ConcatService.concat(","+Servicenames.get(k));
+                    }
+                    }
+                    Intent intent = new Intent(v.getContext(), Registration_Step_3.class);
+                    intent.putExtra("name", name);
+                    intent.putExtra("com_name", com_name);
+                    intent.putExtra("ConcatService", ConcatService);
+                    intent.putExtra("email", email);
+                    intent.putExtra("password", password);
+                    intent.putExtra("address", address);
+                    intent.putExtra("mobile", mobile);
+                    v.getContext().startActivity(intent);
+
+            }
+        });
+
          gridLayoutManager = new GridLayoutManager(getApplicationContext(),2);
        // set LayoutManager to RecyclerView
         GETAllServiceS();

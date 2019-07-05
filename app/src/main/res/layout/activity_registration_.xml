@@ -23,11 +23,21 @@
         android:layout_margin="15dp"
         android:id="@+id/serv_id"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
 
     </android.support.v7.widget.RecyclerView>
+<Button
+    android:id="@+id/next"
+    android:textStyle="bold"
+    android:textColor="#fff"
+    android:background="@null"
+    android:text="Next"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
 
+
+</Button>
 
 
 

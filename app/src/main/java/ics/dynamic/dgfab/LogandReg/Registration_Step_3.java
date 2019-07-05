@@ -62,12 +62,13 @@ public class Registration_Step_3 extends AppCompatActivity {
     public static ArrayList<String> Models = new ArrayList<>();
     SessionManager sessionManager;
     Button upload;
-    String name, email, com_name, password, address, mobile;
+    String name, email, com_name, password, address,concatService,mobile;
     File trandmark_cerFile, copyright_cerFile, others_cerFile, gst_cerFile, degree_cerFile;
     ImageView trandmark_cer, copyright_cer, others_cer, gst_cer, degree_cer;
     int trandmark_cerAnInt, copyright_cerAnInt, others_cerAnInt, gst_cerAnInt, degree_cerAnInt;
     List<AddMoreBrands> addMoreBrandsArrayList = new ArrayList<>();
     private ProgressDialog dialog;
+    String ModelsBrands;
     private int RESULT_LOAD_IMAGE = 101;
     private int RESULT_PICK_IMAGE = 141;
     public final int REQUEST_ID_MULTIPLE_PERMISSIONS = 100;
@@ -94,6 +95,7 @@ public class Registration_Step_3 extends AppCompatActivity {
         com_name = getIntent().getStringExtra("com_name");
         password = getIntent().getStringExtra("password");
         address = getIntent().getStringExtra("address");
+        concatService = getIntent().getStringExtra("ConcatService");
         mobile = getIntent().getStringExtra("mobile");
         Log.e("name", "" + name);
         Log.e("email", "" + email);
@@ -470,7 +472,14 @@ public class Registration_Step_3 extends AppCompatActivity {
                 try{
                 if(!Models.isEmpty())
                 {
-                    entity.addPart("brand_name", new StringBody(Models.get(0)));
+                    for(int i=0;i<Models.size();i++) {
+                        if(i==0) {
+                            ModelsBrands.concat(ModelsBrands);
+                        }else {
+                            ModelsBrands.concat(","+ModelsBrands);
+                        }
+                    }
+                    entity.addPart("brand_name", new StringBody( ModelsBrands));
                 }
                 }catch (Exception e){
                     e.printStackTrace();
@@ -481,9 +490,9 @@ public class Registration_Step_3 extends AppCompatActivity {
                 entity.addPart("email", new StringBody("" + email));
                 entity.addPart("mobile", new StringBody("" + mobile));
                 entity.addPart("address", new StringBody("" + address));
-                entity.addPart("company_name", new StringBody("" + com_name));
+                entity.addPart("company_name", new StringBody("" +com_name));
                 entity.addPart("password", new StringBody("" + password));
-                entity.addPart("sub_type", new StringBody("3"));
+                entity.addPart("sub_type", new StringBody(""+concatService));
                 entity.addPart("trandmark_cer", new FileBody(trandmark_cerFile));
                 entity.addPart("copyright_cer", new FileBody(copyright_cerFile));
                 entity.addPart("others_cer", new FileBody(others_cerFile));
